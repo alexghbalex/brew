@@ -1,0 +1,8 @@
+<menu>
+  <li><a routerLink="/first" routerLinkActive="active">First</a></li>
+  <li><a routerLink="/second" routerLinkActive="active">Second</a></li>
+  <li [class]="{hidden: hidden}"><a routerLink="/third" routerLinkActive="active">Third</a></li>
+  <li [class]="{hidden: hidden}"><a routerLink="/fourth" routerLinkActive="active">Fourth</a></li>
+  <li [class]="{hidden: hidden}"><a routerLink="/fifth" routerLinkActive="active">Fifth</a></li>
+  <li><div class="toggle" (click)="toggle()">...</div></li>
+</menu>

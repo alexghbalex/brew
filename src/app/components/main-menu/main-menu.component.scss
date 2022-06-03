@@ -1,0 +1,29 @@
+menu {
+  display: flex;
+  list-style: none;
+  justify-content: start;
+}
+
+li {
+  margin: 0 10px;
+
+  &.hidden {
+    display: none;
+  }
+
+  .toggle {
+    border: 1px solid gray;
+    border-radius: 50%;
+    color: gray;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 0.8;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+a {
+  text-decoration: none;
+}

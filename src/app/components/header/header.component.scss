@@ -1,0 +1,16 @@
+:host {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  img {
+    height: 100%;
+  }
+}
+
+app-main-menu {
+  width: 90%;
+  text-align: start;
+}
