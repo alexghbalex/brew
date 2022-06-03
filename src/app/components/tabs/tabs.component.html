@@ -1,0 +1,7 @@
+<menu>
+  <li *ngFor="let tab of (state$ | async)?.tabs"><a [routerLink]="tab.link" routerLinkActive="active">{{tab.name}}</a></li>
+  <li>
+    <div class="add" (click)="add()">+</div>
+  </li>
+</menu>
+

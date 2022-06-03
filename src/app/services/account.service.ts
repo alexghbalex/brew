@@ -4,14 +4,14 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class AccountService {
   constructor(private http: HttpClient) {
   }
 
-  getTabs() {
-    return [
-      {name: 'Market Analysis', link: 'dfadfdf'},
-      {name: 'Competitive Analysis', link: 'ghjghgf'}
-    ];
+  login() {
+  }
+
+  logout() {
+
   }
 }

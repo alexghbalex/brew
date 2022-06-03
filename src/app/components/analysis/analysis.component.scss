@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+app-filters {
+  width: 100%;
+}
+
+app-table, app-graph {
+  min-width: 500px;
+}
