@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+section {
+  width: 45%;
+  min-width: 500px;
+}
+
+h3 {
+  display: inline-block;
+  margin: 10px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+       margin: 0 10px;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import {faker} from '@faker-js/faker';
 import {Observable} from "rxjs";
 import {BrewTab} from "../../app.models";
 import {AddTab, GetTabs} from "../../store/brew.actions";
+import {BrewState} from "../../store/brew.state";
 
 @Component({
   selector: 'app-tabs',
@@ -11,7 +12,7 @@ import {AddTab, GetTabs} from "../../store/brew.actions";
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit {
-  @Select((state: { brew: { tabs: BrewTab[] } }) => state.brew) state$: Observable<{ tabs: BrewTab[] }> | undefined;
+  @Select(BrewState.tabs) tabs$: Observable<BrewTab[]>;
 
   constructor(private store: Store) {
   }

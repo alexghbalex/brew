@@ -1,3 +1,17 @@
-<ul>
-  <li></li>
-</ul>
+<section *ngIf="(tableData$ | async) as tableData">
+  <h3>{{tableData.id}}</h3>
+  <h3>{{tableData.name}}</h3>
+  <ul>
+    <li *ngFor="let row of tableData.data">
+      <p>{{row['field']}}</p>
+      <div>
+        <a href="">{{row['link1']}}</a>
+        <a href="">{{row['link2']}}</a>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <app-graph [dataForGraph]='dataForGraph'></app-graph>
+</section>

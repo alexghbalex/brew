@@ -1,7 +1,7 @@
-import {Action, State, StateContext, StateToken} from "@ngxs/store";
+import {Action, Selector, State, StateContext, StateToken} from "@ngxs/store";
 import {Injectable} from "@angular/core";
 import {ApiService} from "../services/api.service";
-import {BrewStateModel, BrewTab, Filter} from "../app.models";
+import {BrewData, BrewStateModel, BrewTab, Filter} from "../app.models";
 import {AddTab, GetTabs, SetFilter} from "./brew.actions";
 
 const BREW_STATE_TOKEN = new StateToken<BrewStateModel>('brew');
@@ -11,11 +11,22 @@ const BREW_STATE_TOKEN = new StateToken<BrewStateModel>('brew');
   defaults: {
     tabs: [],
     filters: {},
+    data: {} as BrewData,
   }
 })
 @Injectable()
 export class BrewState {
   constructor(private api: ApiService) {
+  }
+
+  @Selector()
+  static tabs(state: BrewStateModel) {
+    return state.tabs || [];
+  }
+
+  @Selector()
+  static data(state: BrewStateModel) {
+    return state.data || {};
   }
 
   @Action(AddTab)
@@ -41,6 +52,17 @@ export class BrewState {
     ctx.setState({
       ...state,
       filters: {...state.filters, [action.filter]: action.value}
+    });
+  }
+
+  @Action(GetTabs)
+  getData(ctx: StateContext<BrewStateModel>) {
+    const state = ctx.getState();
+    this.api.getData(state.filters).subscribe(data => {
+      ctx.setState({
+        ...state,
+        data,
+      });
     });
   }
 }

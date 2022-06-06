@@ -17,3 +17,7 @@ export class SetFilter {
   constructor(public filter: Filter) {
   }
 }
+
+export class GetData {
+  static readonly type = '[Brew] Get Data';
+}
